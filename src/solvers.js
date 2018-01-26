@@ -50,7 +50,7 @@ window.countNRooksSolutions = function(n) {
   }
 
   var checkBoard = function(board, n, row) {
-
+    // if we make it to the end of the board w/o failures, increment counter
     if (row === n) {
       solutionCount++;
       return;
@@ -81,7 +81,7 @@ window.findNQueensSolution = function(n) {
   }
 
   var checkBoard = function(board, n, row) {
-
+    // instead of incrementing counter, deep clone it and return it later
     if (row === n) {
       if (solution === undefined) {
         solution = JSON.parse(JSON.stringify(board.rows()))
@@ -105,7 +105,6 @@ window.findNQueensSolution = function(n) {
 
 
 // return the number of nxn chessboards that exist, with n queens placed such that none of them can attack each other
-// console.log(JSON.stringify(board.rows()))
 window.countNQueensSolutions = function(n) {
   var solutionCount = 0; //fixme
   var board = new Board({n: n});
@@ -119,8 +118,7 @@ window.countNQueensSolutions = function(n) {
 
     if (row === n) {
       solutionCount++;
-      // console.log(JSON.stringify(board.rows()))
-      return 'this is dumb';
+      return 'this is hard';
     }
     // debugger;
     
